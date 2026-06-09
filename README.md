@@ -111,3 +111,30 @@ The script produces several visualizations for EDA:
 3. **Count Plots** - Categorical features distribution across churn classes
 4. **Confusion Matrices** - Heatmaps for each model (training & testing)
 
+---
+
+## Example Predictions
+
+Sample predictions on test data (actual vs predicted):
+
+| Tenure | MonthlyCharges | InternetService | PaperlessBilling | Actual Churn | Predicted Churn |
+|--------|---------------:|----------------:|-----------------:|-------------:|----------------:|
+| 1 | 29.85 | Yes | Yes | No | No |
+| 5 | 104.10 | Yes | No | Yes | No |
+| 60 | 20.50 | No | Yes | No | No |
+| 72 | 115.50 | Yes | Yes | No | No |
+
+---
+
+## Recommendations for Improvement
+
+Based on model limitations (only 49% recall for churn):
+
+1. **Handle class imbalance** - Use SMOTE or class_weight parameter
+2. **Feature engineering** - Create interaction terms (e.g., tenure × monthly charges)
+3. **Hyperparameter tuning** - GridSearchCV for optimal parameters
+4. **Try advanced algorithms** - XGBoost, LightGBM, or Neural Networks
+5. **Collect more data** - Especially churn cases to balance classes
+6. **Adjust decision threshold** - Lower threshold for churn prediction to increase recall
+
+
