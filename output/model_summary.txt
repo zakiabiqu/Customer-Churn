@@ -1,0 +1,85 @@
+================================================================================
+                    CUSTOMER CHURN ANALYSIS - MODEL SUMMARY
+================================================================================
+Date: June 2026
+Dataset: Telecommunication Customer Churn (June 2020)
+Total samples: 7,043
+Training set: 4,865 (70%)
+Testing set: 2,085 (30%)
+Churn rate in training: 26.5%
+Churn rate in testing: 26.2%
+
+================================================================================
+MODEL COMPARISON
+================================================================================
+
+1. LOGISTIC REGRESSION (Best Model)
+   - Training Accuracy: 80%
+   - Testing Accuracy: 79%
+   - Testing Precision (Churn): 0.64
+   - Testing Recall (Churn): 0.49
+   - Testing F1-Score (Churn): 0.55
+   - Overfitting: No (stable)
+   - Notes: Chosen as best model due to simplicity, interpretability, and stable performance.
+
+2. RANDOM FOREST CLASSIFIER
+   - Training Accuracy: 100%
+   - Testing Accuracy: 78%
+   - Testing Precision (Churn): 0.59
+   - Testing Recall (Churn): 0.47
+   - Testing F1-Score (Churn): 0.52
+   - Overfitting: Yes (severe - 100% training vs 78% testing)
+
+3. GRADIENT BOOSTING CLASSIFIER
+   - Training Accuracy: 82%
+   - Testing Accuracy: 79%
+   - Testing Precision (Churn): 0.64
+   - Testing Recall (Churn): 0.48
+   - Testing F1-Score (Churn): 0.55
+   - Overfitting: Moderate
+   - Notes: Performance similar to Logistic Regression but more complex.
+
+================================================================================
+CONFUSION MATRIX - LOGISTIC REGRESSION (TESTING SET)
+================================================================================
+                Predicted
+Actual         No Churn   Churn
+No Churn          1,385      154
+Churn               278      268
+
+Total correct predictions: 1,385 + 268 = 1,653 out of 2,085 (79.3%)
+
+================================================================================
+CLASSIFICATION REPORT - LOGISTIC REGRESSION (TESTING SET)
+================================================================================
+              precision    recall  f1-score   support
+No Churn          0.83      0.90      0.87      1,539
+Churn             0.64      0.49      0.55        546
+
+accuracy                                   0.79      2,085
+macro avg         0.74      0.70      0.71
+weighted avg      0.78      0.79      0.78
+
+================================================================================
+KEY INSIGHTS
+================================================================================
+- The model is good at identifying non-churn customers (90% recall) but poor at detecting actual churn (only 49% recall).
+- Many false negatives (278 customers) means 51% of churners are missed.
+- Recommended action: Lower decision threshold to 0.3 to increase recall, or use class_weight='balanced' in Logistic Regression.
+
+================================================================================
+SAVED MODEL
+================================================================================
+File: best_model_churn.pkl
+Type: LogisticRegression (scikit-learn)
+Location: output/best_model_churn.pkl
+
+To load and use:
+    import pickle
+    with open('output/best_model_churn.pkl', 'rb') as f:
+        model = pickle.load(f)
+    prediction = model.predict(new_data)
+
+================================================================================
+END OF SUMMARY
+================================================================================
