@@ -1,6 +1,6 @@
 # Customer Churn Analysis Using Machine Learning
 
-**Author:** [Your Name]   
+**Author:** Zaki Abiyu Aqilah   
 **Tools:** Python (Pandas, Scikit-learn, Matplotlib, Seaborn)  
 **Goal:** Predict customer churn and identify key factors influencing customer departure
 
