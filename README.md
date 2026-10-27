@@ -145,3 +145,4 @@ Rencana penyesuaian kode jika proyek ini dijalankan di Databricks:
 - Hapus konfigurasi memori Spark dan `spark.stop()`
 - Gunakan nama tabel 3 bagian: `catalog.schema.table`
 - Simpan output sebagai tabel Delta, bukan file lokal
+- Contoh nama catalog: `bsim_dev` untuk uji coba, `bsim_prod` untuk produksi
